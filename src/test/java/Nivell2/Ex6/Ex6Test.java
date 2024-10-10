@@ -11,9 +11,14 @@ public class Ex6Test {
     @Test
     public void testExceptin() {
         assertThatThrownBy(() -> {
-            indexOutOfBounds();
+            indexOutOfBounds(4);
         }).isInstanceOf(IndexOutOfBoundsException.class)
                 .hasMessageContaining("Index 4 out of bounds for length 3");
+
+        assertDoesNotThrow(() -> {
+            indexOutOfBounds(1);
+        });
+
     }
 
 }
