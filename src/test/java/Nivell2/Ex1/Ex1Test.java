@@ -12,8 +12,8 @@ public class Ex1Test {
     @DisplayName("Demostrar si dos numeros son iguales")
     @Test
     public void TestIgualdad(){
-        int num1 = 1;
-        int num2 = 1;
+        Ex1 num1 = new Ex1(1);
+        Ex1 num2 = new Ex1(1);
         assertThat(num1).isEqualTo(num2);
     }
 

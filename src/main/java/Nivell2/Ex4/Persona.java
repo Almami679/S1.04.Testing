@@ -1,20 +1,21 @@
 package Nivell2.Ex4;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Persona {
-
+    public static ArrayList<Persona> personasClass = new ArrayList<Persona>();
     String nom;
     int edad;
-    int id;
-    static int idSiguiente= 1;
+
 
     public Persona(String nom, int edad) {
         this.nom = nom;
         this.edad = edad;
-        this.id = idSiguiente;
-        id++;
 
+    }
+    public void crearPersona(Persona persona){
+        personasClass.add(persona);
     }
 
     public String getNom() {
@@ -26,11 +27,11 @@ public class Persona {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Persona persona = (Persona) o;
-        return edad == persona.edad && id == persona.id && Objects.equals(nom, persona.nom);
+        return edad == persona.edad && Objects.equals(nom, persona.nom);
     }
 
     @Override
     public int hashCode() {
-        return id;
+        return Objects.hash(nom);
     }
 }

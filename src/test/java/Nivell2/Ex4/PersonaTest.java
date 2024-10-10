@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import java.util.HashSet;
 import java.util.Set;
 
+import static Nivell2.Ex4.Persona.personasClass;
 import static jdk.internal.org.commonmark.parser.block.BlockContinue.atIndex;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -15,14 +16,13 @@ public class PersonaTest {
     @DisplayName("Check de si la array tiene los objetos en orden de creacion," +
             "y si el hash los tiene desordenados")
     @Test
-    public void testOrdenArray(){
+    public void testOrdenArray() {
         Persona primerAdd = new Persona("Albert Marin", 35);
         Persona segundoAdd = new Persona("Irene Marin", 32);
         Persona tercerAdd = new Persona("Juan Marin", 61);
         Persona cuartoAdd = new Persona("Pilar Miranda", 62);
         Persona[] personas = {primerAdd, segundoAdd, tercerAdd, cuartoAdd};
-        //assertThat(personas.getNom().containsExactlyElementsOf);
-
+        assertThat(personas).containsExactly(primerAdd, segundoAdd, tercerAdd, cuartoAdd);
     }
 
     @DisplayName("Check de si la array tiene los objetos")
@@ -34,14 +34,9 @@ public class PersonaTest {
         Persona tercerAdd = new Persona("Juan Marin", 61);
         Persona cuartoAdd = new Persona("Pilar Miranda", 62);
         Persona[] personas = {primerAdd, segundoAdd, tercerAdd, cuartoAdd};
-        assertAll(
-                () -> assertThat(primerAdd).isIn(personas),
-                () -> assertThat(segundoAdd).isIn(personas),
-                () -> assertThat(tercerAdd).isIn(personas),
-                () -> assertThat(cuartoAdd).isIn(personas));
-//ContainsExactlyInAnyOrderOfElements
+
+        assertThat(personas).containsExactlyInAnyOrder(primerAdd, segundoAdd, tercerAdd, cuartoAdd);
     }
- //containsOnly
 
     @DisplayName("Check de si la array no tiene un objeto repetido " +
             "ni uno sin añadir ")
@@ -58,10 +53,9 @@ public class PersonaTest {
         personas.add(segundoAdd);
         personas.add(cuartoAdd);
         personas.add(repetido);
-        assertThat(repetido).isNotIn(personas);
-        assertThat(noAñadido).isNotIn(personas);
+        assertThat(personas).doesNotContain(noAñadido);
+        assertThat(personas).doesNotHaveDuplicates();
 
-//NotCOntains
     }
 
 
