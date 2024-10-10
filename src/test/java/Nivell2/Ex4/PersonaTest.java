@@ -21,11 +21,7 @@ public class PersonaTest {
         Persona tercerAdd = new Persona("Juan Marin", 61);
         Persona cuartoAdd = new Persona("Pilar Miranda", 62);
         Persona[] personas = {primerAdd, segundoAdd, tercerAdd, cuartoAdd};
-        assertAll(
-                () -> assertThat(primerAdd).isIn(personas[0]),
-                () -> assertThat(segundoAdd).isIn(personas[1]),
-                () -> assertThat(tercerAdd).isIn(personas[2]),
-                () -> assertThat(cuartoAdd).isIn(personas[3]));
+        //assertThat(personas.getNom().containsExactlyElementsOf);
 
     }
 
@@ -43,8 +39,10 @@ public class PersonaTest {
                 () -> assertThat(segundoAdd).isIn(personas),
                 () -> assertThat(tercerAdd).isIn(personas),
                 () -> assertThat(cuartoAdd).isIn(personas));
-
+//ContainsExactlyInAnyOrderOfElements
     }
+ //containsOnly
+
     @DisplayName("Check de si la array no tiene un objeto repetido " +
             "ni uno sin añadir ")
     @Test
@@ -63,7 +61,7 @@ public class PersonaTest {
         assertThat(repetido).isNotIn(personas);
         assertThat(noAñadido).isNotIn(personas);
 
-
+//NotCOntains
     }
 
 

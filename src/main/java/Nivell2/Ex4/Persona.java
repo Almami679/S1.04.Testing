@@ -17,6 +17,10 @@ public class Persona {
 
     }
 
+    public String getNom() {
+        return this.nom;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

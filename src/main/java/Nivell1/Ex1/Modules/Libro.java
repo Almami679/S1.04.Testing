@@ -144,10 +144,10 @@ public class Libro {
 
     }
     public static void deleteLibroByName(String titulo) {
-        ArrayList<Integer>libros = new ArrayList<>(buscarLibrosPorNombre(titulo));
-        for(int pos : libros) {
-            System.out.println(libros.get(pos).toString() +  " Eliminado;");
-            libros.remove(pos);
+                for(int pos = 0; pos < libros.size(); pos++){
+                    if(libros.get(pos).getTitulo().equalsIgnoreCase(titulo))
+                        System.out.println(titulo + "Copia " + libros.get(pos).getNumCopia() + " Eliminado");
+                        libros.remove(libros.get(pos));
         }
     }
 

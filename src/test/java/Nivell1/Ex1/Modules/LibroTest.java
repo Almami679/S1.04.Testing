@@ -14,7 +14,7 @@ public class LibroTest {
             "no es null")
     @Test
     public void testListaNull(){
-        addBook(new Libro("libroPrueba", 1));
+
         assertNotNull(libros, "La lista es Null");
     }
 
@@ -78,19 +78,12 @@ public class LibroTest {
             "de eliminar objetos, me da error de out of memory Error")
     @Test
     public void checkEliminiarLibrosRespectoAlSizeDeLaLista() {
-        try {
-            int tamanoEsperado = 2;
-            String tituloAEliminar = "libroPrueba2";
-            Libro libroAEliminar = new Libro("libroPrueba2", 1);
+            int tamanoEsperado = 1;
+            addBook(new Libro("libroPrueba2", 1));
             addBook(new Libro("libroPrueba", 1));
-            addBook(libroAEliminar);
-            addBook(new Libro("libroPrueba3", 1));
-            deleteLibroByName("libroPrueba2");
+            deleteLibroByName("libroPrueba");
             assertEquals(tamanoEsperado, libros.size());
-        } catch (OutOfMemoryError e){
-            System.out.println("Error de poca memoria en el compilador" +
-                    "\n" + e.getMessage());
-        }
+
     }
 
     @Test
@@ -105,7 +98,6 @@ public class LibroTest {
         assertEquals(tituloPrimerLibroDeLaLista, libros.getFirst().getTitulo());
         assertEquals(tituloUltimoLibroDeLaLista, libros.getLast().getTitulo());
     }
-
 
 
 }
